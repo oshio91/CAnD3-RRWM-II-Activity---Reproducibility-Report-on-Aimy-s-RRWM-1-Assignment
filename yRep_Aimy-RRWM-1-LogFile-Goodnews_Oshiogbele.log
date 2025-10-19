@@ -1,0 +1,172 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\oshio\Documents\CAnD3 RRWM 1\Stata Works\Rep Aimy\Rep_Aimy-RRWM-1-LogFile-Goodnews_Oshiogbele.log
+  log type:  text
+ opened on:   7 Oct 2025, 22:00:11
+
+. 
+end of do-file
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. import delimited "gss-12M0025-E-2017-c-31_F1.csv"
+file gss-12M0025-E-2017-c-31_F1.csv not found
+r(601);
+
+end of do-file
+
+r(601);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. import delimited "C:\Users\oshio\Documents\CAnD3 RRWM 1\Stata Works\gss-12M0025-E-2017-c-31_F1.csv"
+(1,316 vars, 20,602 obs)
+
+. 
+end of do-file
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. tab srh_110
+
+    SRH_110 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      4,376       21.24       21.24
+          2 |      7,014       34.05       55.29
+          3 |      6,162       29.91       85.20
+          4 |      2,078       10.09       95.28
+          5 |        816        3.96       99.24
+          7 |         57        0.28       99.52
+          8 |         42        0.20       99.72
+          9 |         57        0.28      100.00
+------------+-----------------------------------
+      Total |     20,602      100.00
+
+. 
+end of do-file
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. tab srh_110, mis
+
+    SRH_110 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |      4,376       21.24       21.24
+          2 |      7,014       34.05       55.29
+          3 |      6,162       29.91       85.20
+          4 |      2,078       10.09       95.28
+          5 |        816        3.96       99.24
+          7 |         57        0.28       99.52
+          8 |         42        0.20       99.72
+          9 |         57        0.28      100.00
+------------+-----------------------------------
+      Total |     20,602      100.00
+
+. 
+end of do-file
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. describe srh_110
+
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------------------------------------------------------------------
+srh_110         byte    %8.0g                 SRH_110
+
+. 
+end of do-file
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. recode srh_110 (1/3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. recode srh_110 (1/3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. 
+. recode srh_110 (1/3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. recode srh_110 (1 2 3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. 
+. recode srh_110 (1/3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. recode srh_110 (1/3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. recode srh_110 (1/3 = 1 "Good health")///
+Rules defining value labels not allowed when overwriting a variable
+r(198);
+
+end of do-file
+
+r(198);
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. // 1. Recode the variable and generate a new one
+. recode srh_110 (1/3 = 1) (4/6 = 0) (7/9 = .), gen(srh_110b)
+(16226 differences between srh_110 and srh_110b)
+
+. 
+end of do-file
+
+. do "C:\Users\oshio\AppData\Local\Temp\STD1e180_000000.tmp"
+
+. // 2. Define the new value labels
+. label define srh_110b_labels 1 "Good health" 0 "Poor health" . "missing value"
+may not label .
+r(198);
+
+end of do-file
+
+r(198);
+
+. exit, clear
